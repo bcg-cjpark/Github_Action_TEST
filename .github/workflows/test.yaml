@@ -13,5 +13,5 @@ jobs:
         run: echo ${{ github.event.comment.body }}
         
       - name: 실행!
-        if: ontains(github.event.comment.body, 'userapi')
+        if: contains(github.event.comment.body, 'userapi')
         run: echo ${{ github.event.comment.body }}
