@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: 실행!
+      - if: contains(github.event.comment.body, 'batch')
+        name: 실행!
         run: echo ${{ github.event.comment.body }}
-      
+      - if: ontains(github.event.comment.body, 'userapi')
+        name: 실행!
+        run: echo ${{ github.event.comment.body }}
