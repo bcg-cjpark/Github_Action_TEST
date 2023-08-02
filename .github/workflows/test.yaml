@@ -1,1 +1,13 @@
-
+name: Pull request comment
+on:
+  issue_comment:
+    types: [created, edited]
+jobs:
+  pull_request_comment:
+    if: github.event.issue.pull_request && contains(github.event.comment.body, 'release-')
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 실행!
+        run: echo github.event.comment.body
+      
