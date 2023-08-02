@@ -10,8 +10,12 @@ jobs:
     steps:
       - name: 실행!
         if: contains(github.event.comment.body, 'batch')
-        run: echo ${{ github.event.comment.body }}
+        run: |
+          echo ${{ github.event.comment.body }}
+          echo "batch Done"
         
       - name: 실행!
         if: contains(github.event.comment.body, 'userapi')
-        run: echo ${{ github.event.comment.body }}
+        run: |
+          echo ${{ github.event.comment.body }}
+          echo "userapi Done"
