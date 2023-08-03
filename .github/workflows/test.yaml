@@ -19,8 +19,7 @@ jobs:
         run: |
           echo ${{ github.event.comment.body }}
           echo "userapi Done"
-      - name: Fetch PR information
+          
+      - name: 마무리
         run: |
-          PR_NUMBER=$(jq -r ".pull_request.number" "$GITHUB_EVENT_PATH")
-          PR_COMMITS=$(curl -s "https://api.github.com/repos/pcjin22/Github_Action_TEST/pull/1/commits" -H "Authorization: Bearer ${{ secrets.SECRET_TOKEN }}" | jq -r ".[].sha")
-          echo "Commits in the PR: $PR_COMMITS"
+          echo {{ secrets.SECRET_TOKEN }}
