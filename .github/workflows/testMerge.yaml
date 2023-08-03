@@ -3,7 +3,7 @@ name: Commit Messages on Push
 on:
   push:
     branches:
-      - main
+      - test
 
 jobs:
   get_commit_messages:
