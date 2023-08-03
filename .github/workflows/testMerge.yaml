@@ -1,0 +1,30 @@
+name: Merged Commit Messages
+on:
+  push:
+    branches:
+      - test
+
+jobs:
+  get_merged_commit_messages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get merged commit messages
+        run: |
+          # Fetch the details of the merged commit
+          git fetch origin $GITHUB_SHA
+          
+          # Get the parent commit (main branch) and the merge commit
+          PARENT_COMMIT=$(git rev-parse origin/main)
+          MERGE_COMMIT=$GITHUB_SHA
+
+          # Get the list of merged commit SHAs between the parent and merge commit
+          COMMIT_LIST=$(git rev-list $PARENT_COMMIT..$MERGE_COMMIT)
+
+          # Loop through each merged commit and print the commit messages
+          for COMMIT_SHA in $COMMIT_LIST; do
+            COMMIT_MESSAGE=$(git log --format=%B -n 1 $COMMIT_SHA)
+            echo "Merged commit message: $COMMIT_MESSAGE"
+          done
