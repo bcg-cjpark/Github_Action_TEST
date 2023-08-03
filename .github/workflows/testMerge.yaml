@@ -18,3 +18,4 @@ jobs:
           echo ${{ github.event.commits[0].message }}
           echo ${{ github.event.commits[1].message }}
           echo ${{ github.event.commits[2].message }}
+          echo ${{ github.event.size }}
