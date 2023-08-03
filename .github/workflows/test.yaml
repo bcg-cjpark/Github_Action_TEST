@@ -22,4 +22,4 @@ jobs:
           
       - name: 마무리
         run: |
-          echo {{ secrets.SECRET_TOKEN }}
+          echo ${{ secrets.SECRET_TOKEN }}
