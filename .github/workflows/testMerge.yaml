@@ -15,4 +15,4 @@ jobs:
       - name: Get commit messages
         run: |
           echo ${{ github.event.head_commit.message }}
-          echo ${{ github.evnet.commits[0].message }}
+          echo ${{ github.evnet.commits[1].message }}
