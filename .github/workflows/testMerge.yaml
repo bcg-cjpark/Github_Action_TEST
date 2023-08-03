@@ -14,16 +14,5 @@ jobs:
 
       - name: Get commit messages
         run: |
-          # Get the latest commit SHA
-          LAST_COMMIT_SHA=$GITHUB_SHA
-
-          # Get the SHA of the commit before the last one
-          PARENT_COMMIT_SHA=$(git rev-parse $LAST_COMMIT_SHA^)
-
-          # Get the commit messages between the parent and last commit
-          COMMIT_MESSAGES=$(git log --format=%B $PARENT_COMMIT_SHA..$LAST_COMMIT_SHA)
-
-          # Loop through each commit message and print it
-          while IFS= read -r commit_message; do
-            echo "Commit message: $commit_message"
-          done <<< "$COMMIT_MESSAGES"
+          echo ${ github.event.head_commit.message }
+          echo ${ github.evnet.commits[0].message }
