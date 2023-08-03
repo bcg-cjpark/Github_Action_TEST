@@ -17,7 +17,7 @@ jobs:
           git fetch origin $GITHUB_SHA
           
           # Get the parent commit (main branch) and the merge commit
-          PARENT_COMMIT=$(git rev-parse origin/main)
+          PARENT_COMMIT=$(git rev-parse origin/test)
           MERGE_COMMIT=$GITHUB_SHA
 
           # Get the list of merged commit SHAs between the parent and merge commit
