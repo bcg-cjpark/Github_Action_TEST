@@ -28,7 +28,7 @@ jobs:
           echo ${#array[@]}
           echo "============================="
           
-          for a in "${!${{ github.event.commits }}[@]}"
+          for (( i = 0; i < ${#array[@]} ))
           do
-            echo ${a}
+            echo ${{ github.event.commits[i].message }}
           done
