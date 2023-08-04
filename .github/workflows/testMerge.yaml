@@ -28,3 +28,9 @@ jobs:
           echo "${{ toJSON(github.event.commits) }}"
           
           echo '${{ toJSON(github.event.commits) }}' | jq ".[0].message"
+          
+          array=${{ github.event.commits }}
+          
+          for (( i = 0; i < ${#array[@]}; i++ )); do
+            echo '${{ toJSON(github.event.commits) }}' | jq ".[$i].message"
+          done
