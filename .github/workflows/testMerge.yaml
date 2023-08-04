@@ -22,7 +22,7 @@ jobs:
           
           for (( i = 0; i < $length; i++ )); do
             commit='${{ toJSON(github.event.commits) }}' | jq ".[$i].message"
-            $ALL_MESSAGE +="\n- $commit"
+            echo $commit
           done
           
           echo $ALL_MESSAGE
