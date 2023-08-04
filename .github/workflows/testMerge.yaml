@@ -33,7 +33,7 @@ jobs:
           
           for commit in ${{ github.event.commits }}; do
             test=$commit
-            echo $test.message
+            echo ${test[message]}
           done
           
       - uses: actions/github-script@v6
