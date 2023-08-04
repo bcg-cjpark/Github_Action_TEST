@@ -40,7 +40,7 @@ jobs:
           script: |
             const commits = ${{ toJSON(github.event.commits) }}
             for (const commit of commits) {
-              ALL_MESSAGE += commit.message
+              $ALL_MESSAGE += commit.message
             }
             
       - name: Print
