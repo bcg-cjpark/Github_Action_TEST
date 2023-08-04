@@ -22,11 +22,10 @@ jobs:
           echo ${{ github.event.commits[2].author.name }}
           echo ${{ github.event.commits[2].message }}
           
-          array=()
           array=${{ github.event.commits }}
           
           echo "============================="
-          echo $array.length
+          echo ${#array[@]}
           echo "============================="
           
           for a in "${!${{ github.event.commits }}[@]}"
