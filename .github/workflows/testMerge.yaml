@@ -31,8 +31,8 @@ jobs:
           echo ${#array[@]}
           echo "============================="
           
-          for (( i = 0; i < ${#array[@]}; i++ )); do
-            echo "${array[$i]}"
+          for commit in ${{ toJson(github.event.commits) }}; do
+          
           done
           
       - uses: actions/github-script@v6
@@ -40,9 +40,5 @@ jobs:
           script: |
             const commits = ${{ toJSON(github.event.commits) }}
             for (const commit of commits) {
-              ${{ env.ALL_MESSAGE }} += commit.message
-            }
             
-      - name: Print
-        run: |
-          echo $ALL_MESSAGE
+            }
