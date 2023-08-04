@@ -19,7 +19,10 @@ jobs:
           echo ${{ github.event.commits[1].message }}
           echo ${{ github.event.commits[2].message }}
           
-          for a in ${{ github.event.commits }}
+          commit_message = ()
+          commit_message = ${{ github.event.commits }}
+          
+          for a in "${commit_message[@]}
           do
             echo ${a[message]}
           done
