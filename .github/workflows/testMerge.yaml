@@ -8,7 +8,7 @@ env:
   COMMIT_MESSAGES: ''
 
 jobs:
-  get_commit_messages:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
