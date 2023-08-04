@@ -32,3 +32,11 @@ jobs:
           for (( i = 0; i < ${#array[@]}; i++ )); do
             echo "${array[$i]}"
           done
+          
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const commits = ${{ toJSON(github.event.commits) }}
+            for (const commit of commits) {
+              console.log(commit);
+            }
