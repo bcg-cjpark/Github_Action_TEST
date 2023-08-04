@@ -25,21 +25,4 @@ jobs:
           echo ${{ github.event.commits[2].message }}
           echo ${{ github.event.commits.message }}
           
-          array=${{ github.event.commits }}
-          
-          echo "============================="
-          echo ${#array[@]}
-          echo "============================="
-          
-          for commit in ${{ github.event.commits }}; do
-            test=$commit
-            echo ${test[@]}
-          done
-          
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            const commits = ${{ toJSON(github.event.commits) }}
-            for (const commit of commits) {
-            
-            }
+          echo "${{ toJSON(github.event.commits) }}
