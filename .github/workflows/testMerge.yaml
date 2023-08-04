@@ -30,5 +30,5 @@ jobs:
           
           for i in ${#array[@]}
           do
-            echo ${{ github.event.commits[$i].message }}
+            echo ${array[$i].message}
           done
