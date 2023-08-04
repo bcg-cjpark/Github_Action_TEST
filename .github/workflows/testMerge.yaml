@@ -14,6 +14,13 @@ jobs:
 
       - name: Get commit messages
         run: |
+          echo ${{ github.event.head_commit.message }}
+          echo ${{ github.event.commits[0].author.name }}
+          echo ${{ github.event.commits[0].message }}
+          echo ${{ github.event.commits[1].author.name }}
+          echo ${{ github.event.commits[1].message }}
+          echo ${{ github.event.commits[2].author.name }}
+          echo ${{ github.event.commits[2].message }}
           
           array=${{ github.event.commits }}
           
@@ -21,8 +28,6 @@ jobs:
           echo ${#array[@]}
           echo "============================="
           
-          # Loop through all commits and print their messages
-          for commit in ${{ toJson(github.event.commits) }}; do
-            message=$(echo "$commit" | jq -r '.message')
-            echo "Commit Message: $message"
+          for commit in "${{ github.event.commits }}"; do
+            echo "Commit Message: $commit[message]"
           done
