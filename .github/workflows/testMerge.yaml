@@ -21,6 +21,7 @@ jobs:
           echo ${{ github.event.commits[1].message }}
           echo ${{ github.event.commits[2].author.name }}
           echo ${{ github.event.commits[2].message }}
+          echo ${{ github.event.commits.message }}
           
           array=${{ github.event.commits }}
           
