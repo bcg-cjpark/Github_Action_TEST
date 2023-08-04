@@ -28,4 +28,3 @@ jobs:
           echo "${{ toJSON(github.event.commits) }}"
           
           test=${{ toJSON(github.event.commits) }}
-          echo ${test[0][message]}
