@@ -22,7 +22,7 @@ jobs:
           commit_message=()
           commit_message=${{ github.event.commits }}
           
-          for a in "${!commit_message[@]}
+          for a in "${!commit_message[@]}"
           do
             echo ${a[message]}
           done
