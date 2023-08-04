@@ -26,8 +26,7 @@ jobs:
           array=${{ github.event.commits }}
           
           echo "============================="
-          echo ${{ github.event.commits.size }}
-          echo array.length
+          echo $array.length
           echo "============================="
           
           for a in "${!${{ github.event.commits }}[@]}"
