@@ -24,3 +24,5 @@ jobs:
             commit=$(echo '${{ toJSON(github.event.commits) }}' | jq ".[$i].message")
             COMMIT_MESSAGES="${COMMIT_MESSAGES}\n- $commit"
           done
+          
+          echo ${COMMIT_MESSAGES}
