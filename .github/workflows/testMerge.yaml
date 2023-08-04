@@ -29,8 +29,7 @@ jobs:
           echo ${#array[@]}
           echo "============================="
           
-          for commit in "${{ github.event.commits }}"; do
-            for test in "$commit"; do
-              echo $test
-            done
+          for commit in ${{ toJson(github.event.commits) }}; do
+            message=$(echo "$commit" | jq -r '.message')
+            echo "Commit Message: $message"
           done
