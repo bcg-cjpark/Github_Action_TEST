@@ -31,8 +31,9 @@ jobs:
           echo ${#array[@]}
           echo "============================="
           
-          for commit in ${{ toJson(github.event.commits) }}; do
-          
+          for commit in ${{ github.event.commits }}; do
+            test=$commit
+            echo test[message]
           done
           
       - uses: actions/github-script@v6
