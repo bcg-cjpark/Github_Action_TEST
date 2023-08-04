@@ -26,4 +26,6 @@ jobs:
           echo ${{ github.event.commits.message }}
           
           echo "${{ toJSON(github.event.commits) }}"
-          test="${{ toJSON(github.event.commits) }}"
+          
+          number=1
+          echo ${{ github.event.commits[number].message }}
