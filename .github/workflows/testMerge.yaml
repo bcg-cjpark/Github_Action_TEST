@@ -27,4 +27,4 @@ jobs:
           
           echo "${{ toJSON(github.event.commits) }}"
           
-          test="${{ toJSON(github.event.commits) }}"
+          
