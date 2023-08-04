@@ -5,7 +5,7 @@ on:
     branches:
       - test
 env:
-  ALL_MESSAGE: ""
+  COMMIT_MESSAGES: ''
 
 jobs:
   get_commit_messages:
@@ -22,5 +22,5 @@ jobs:
           
           for (( i = 0; i < $length; i++ )); do
             commit=$(echo '${{ toJSON(github.event.commits) }}' | jq ".[$i].message")
-            echo $commit
+            COMMIT_MESSAGES="${COMMIT_MESSAGES}\n- $commit"
           done
