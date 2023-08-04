@@ -27,5 +27,4 @@ jobs:
           
           echo "${{ toJSON(github.event.commits) }}"
           
-          number=1
-          echo ${{ github.event.commits[${{number}}].message }}
+          echo '${{ toJSON(github.event.commits) }}' | jq ".[0].author"
