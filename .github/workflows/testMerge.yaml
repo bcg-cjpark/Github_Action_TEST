@@ -23,7 +23,7 @@ jobs:
           echo ${{ github.event.commits[2].message }}
           
           echo "============================="
-          echo ${{ github.event.size }}
+          echo ${{ github.event.commits.length }}
           echo "============================="
           
           for a in "${!${{ github.event.commits }}[@]}"
