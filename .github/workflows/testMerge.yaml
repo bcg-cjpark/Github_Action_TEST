@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - test
+env:
+  ALL_MESSAGE: ""
 
 jobs:
   get_commit_messages:
@@ -38,5 +40,9 @@ jobs:
           script: |
             const commits = ${{ toJSON(github.event.commits) }}
             for (const commit of commits) {
-              console.log(commit.message);
+              ALL_MESSAGE += commit.message
             }
+            
+      - name: Print
+        run: |
+          echo $ALL_MESSAGE
