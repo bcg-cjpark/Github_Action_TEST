@@ -22,5 +22,4 @@ jobs:
           
           for (( i = 0; i < $length; i++ )); do
             echo '${{ toJSON(github.event.commits) }}' | jq ".[$i].message"
-            echo $i
           done
