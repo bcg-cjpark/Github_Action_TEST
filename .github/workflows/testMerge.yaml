@@ -19,9 +19,7 @@ jobs:
           echo ${{ github.event.commits[1].message }}
           echo ${{ github.event.commits[2].message }}
           
-          testArray = ${{ github.event.commits }}
-          
-          for a in ${testArray[@]}
+          for a in ${{ github.event.commits }}
           do
             echo ${a[message]}
           done
