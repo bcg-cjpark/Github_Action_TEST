@@ -33,8 +33,7 @@ jobs:
           
           for commit in ${{ github.event.commits }}; do
             test=$commit
-            echo ${test[0]
-          }
+            echo ${test[0]}
           done
           
       - uses: actions/github-script@v6
