@@ -20,9 +20,7 @@ jobs:
           
           length=$(jq length <<< '${{ toJSON(github.event.commits) }}')
           
-          for (( i = 0; i < $length; i++ )); do
-            commit="'${{ toJSON(github.event.commits) }}' | jq ".[$i].message""
-            echo $commit
+          for commit in ${{ toJSON(github.event.commits) }}; do
+            message=$(jq -r '.message' <<< "$commit")
+            messages="${messages}\n- $message"
           done
-          
-          echo $ALL_MESSAGE
