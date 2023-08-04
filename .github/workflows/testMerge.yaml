@@ -30,7 +30,7 @@ jobs:
           echo "============================="
           
           for commit in "${{ github.event.commits }}"; do
-            for test in "${ commit }"; do
+            for test in "$commit"; do
               echo $test
             done
           done
